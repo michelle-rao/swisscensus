@@ -3,6 +3,7 @@ import tabula
 from tabula import read_pdf
 import glob, os
 import pandas as pd
+import re
 
 links = [
 #1980:
@@ -69,16 +70,13 @@ for i in numbers:
         # For Fribourg (FR), Bern (BE), Valais (VS) and Graubünden (GR):
         if i == '345656' or i == '345654' or i == '345684' or i == '345658':
             df1 = read_pdf(name, pages="26", area=(118.64,55.25,718.41,505.21))
-            df2 = read_pdf(name, pages="27", area=(118.64,55.25,718.41,505.21))
+            df = read_pdf(name, pages="27", area=(118.64,55.25,718.41,505.21))
         # For all others:
         else:
             df1 = read_pdf(name, pages="19", area=(118.64,55.25,718.41,505.21))
-            df2 = read_pdf(name, pages="20",area=(118.64,55.25,718.41,505.21))
-        # For Luzern (LU):
-        if i == '345662':
-            new = 'LUZERN'
+            df = read_pdf(name, pages="20",area=(118.64,55.25,718.41,505.21))
         # For Zug (ZG):
-        elif i == '345688':
+        if i == '345688':
             new = 'ZUG'
         # For all others:
         else:
@@ -93,23 +91,37 @@ for i in numbers:
         print(new)
         for name in glob.iglob(name):
             os.rename(name, (new + '_1980.pdf'))
-        canton = list(df2.columns.values)
+        canton = list(df.columns.values)
         # For Luzern (LU):
         if i == '345662':
-            df2 = df2.drop('Unnamed: 7', axis=1)
-            df2.columns = varnames[13:27]
+            df = df.drop('Unnamed: 7', axis=1)
+            df.columns = varnames[13:27]
         # For all others:
         else:
-            df2.columns = varnames[13:27]
-        munname = df1[df1.columns.values[0]]
-        df2 = df2.assign(mun_name = munname, can_name = new)
+            df.columns = varnames[13:27]
         # Assign canton-level variables:
-        for j in range(1,len(canton)):
-            df2 = df2.assign(varname = canton[j])
-            varnew = j
-            df2.rename(columns={"varname": varnew}, inplace=True)
+        for j in range(0,len(canton)):
+            df = df.assign(varname = canton[j])
+            varnew = ('can_' + varnames[(j+13)])
+            df.rename(columns={"varname": varnew}, inplace=True)
+        print(df.columns)
+        munname = df1[df1.columns.values[0]]
+        df = df.assign(mun_name = munname, can_name = new)
+        first = df[df.columns[27]]
+        first = list(first)
+        district = []
+        def hasNumbers(inputString):
+            return bool(re.search(r'\d', inputString))
+        for mun in first:
+            numcheck = hasNumbers(mun.split()[0])
+            if numcheck == True:
+                district.append(1)
+            else:
+                district.append(0)
+        df = df.assign(district = district)
+        df = df[df.district == 1]
         newname = (new + '_language_civilstatus_1980.csv')
-        df2.to_csv('./_language_civilstatus/' + newname)
+        df.to_csv('./_language_civilstatus/' + newname)
     except:
         print('Warning!')
         break

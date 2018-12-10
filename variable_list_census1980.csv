@@ -1,102 +1,102 @@
-﻿Variable Name,Variable Description,,,Swiss and foreign population
-mun_id,Municipality ID,,,
-mun_name,Municipality Name,,,
-mun_pop,Total population in municipality,,,
-male_pop,Total male population,,,
-fem_pop,Total female population,,,
-swiss_pop,Total Swiss population,,,
-swiss_male,Total male Swiss population in municipality,,,
-swiss_fem,Total female Swiss population,,,
-foreign_pop,Total foreign population in municipality,,,
-foreign_male,Total foreign male population,,,
-foreign_fem,Total foreign female population,,,
-swiss_promille,Swiss population per 1000 in municipality,,,
-foreign_promille,Foreign population per 1000 in municipality,,,
-mun_name,Municipality Name,,,Language and civil status
-lang_ge,Number of German native speakers in municipality,,,
-lang_fr,Number of French native speakers in municipality,,,
-lang_it,Number of Italian native speakers in municipality,,,
-lang_rae,Number of Rhaetoromanic native speakers in municipality,,,
-lang_other,Number of other native speakers in municipality,,,
-rel_prot,Number of Protestants in municipality,,,
-rel_romkath,Number of Roman-catholics in municipality,,,
-rel_chrkath,Number of Christian-catholic in municipality,,,
-rel_jew,Number of Jews in municipality,,,
-rel_other,Number of other religions in municipality,,,
-civil_sgl,Number of singles in municipality,,,
-civil_mar,Number of people married in municipality,,,
-civil_wid,Number of widow(er)s in municipality,,,
-civil_div,Number of divorced people in municipality,,,
-mun_name,Municipality Name,,,Age 
-age_0_male,Number of male newly-borns in municipality,,,
-age_0_fem,Number of female newly-borns in municipality,,,
-age_14_male,Number of male 1-4 year olds in municipality,,,
-age_14_fem,Number of female 1-4 year olds in municipality,,,
-age_59_male,Number of male 5-9 year olds in municipality,,,
-age_59_fem,Number of female 5-9 year olds in municipality,,,
-age_1014_male,Number of male 10-14 year olds in municipality,,,
-age_1014_fem,Number of female 10-14 year olds in municipality,,,
-age_1519_male,Number of male 15-19 year olds in municipality,,,
-age_1519_fem,Number of female 15-19 year olds in municipality,,,
-age_2024_male,Number of male 20-24 year olds in municipality,,,
-age_2024_fem,Number of female 20-24 year olds in municipality,,,
-age_2529_male,Number of male 25-29 year olds in municipality,,,
-age_2529_fem,Number of female 25-29 year olds in municipality,,,
-age_3034_male,Number of male 30-34 year olds in municipality,,,
-age_3034_fem,Number of female 30-34 year olds in municipality,,,
-age_3539_male,Number of male 35-39 year olds in municipality,,,
-age_3539_fem,Number of female 35-39 year olds in municipality,,,
-age_4044_male,Number of male 40-44 year olds in municipality,,,
-age_4044_fem,Number of female 40-44 year olds in municipality,,,
-age_4549_male,Number of male 45-49 year olds in municipality,,,
-age_4549_fem,Number of female 45-49 year olds in municipality,,,
-age_5054_male,Number of male 50-54 year olds in municipality,,,
-age_5054_fem,Number of female 50-54 year olds in municipality,,,
-age_5559_male,Number of male 55-59 year olds in municipality,,,
-age_5559_fem,Number of female 55-59 year olds in municipality,,,
-age_6064_male,Number of male 60-64 year olds in municipality,,,
-age_6064_fem,Number of female 60-64 year olds in municipality,,,
-age_65plus_male,Number of male 65 plus year olds in municipality,,,
-age_65plus_fem,Number of female 65 plus year olds in municipality,,,
-mun_name,Municipality Name,,,Employment
-mun_employed,Number of employed people in municipality,,,
-male_employed,Number of male employed in municipality,,,
-fem_employed,Number of female employed in municipality,,,
-mun_1sector,Number of people employed in primary sector,,,
-male_1sector,Number of male employed in primary sector,,,
-fem_1sector,Number of female employed in primary sector,,,
-mun_2sector,Number of people employed in secondary sector,,,
-male_2sector,Number of male employed in secondary sector,,,
-fem_2sector,Number of female employed in secondary sector,,,
-mun_3sector,Number of people employed in tertiary sector,,,
-male_3sector,Number of male employed in tertiary sector,,,
-fem_3sector,Number of female employed in tertiary sector,,,
-1sector_perc,Primary sector employees in percent of total employees per municipality,,,
-2sector_perc,Secondary sector employees in percent of total employees per municipality,,,
-3sector_perc,Tertiary sector employees in percent of total employees per municipality,,,
-mun_name,Municipality Name,,,Household size
-tot_hh,Number of total households per municipality,,,
-pers_hh,Number of persons living in households per municipality,,,
-tot_privhh,Number of private households in municipality,,,
-pers_privhh,Number of persons living in private households per municipality,,,
-privhh_1,Number of persons living in 1-person households per municipality,,,
-privhh_2,Number of persons living in 2-person households per municipality,,,
-privhh_3,Number of persons living in 3-person households per municipality,,,
-privhh_4,Number of persons living in 4-person households per municipality,,,
-privhh_5,Number of persons living in 5-person households per municipality,,,
-privhh_6,Number of persons living in 6-person households per municipality,,,
-privhh_7,Number of persons living in 7-person households per municipality,,,
-privhh_8plus,Number of persons living in 8 plus-person households per municipality,,,
-mun_name,Municipality Name,,,Housing
-tot_flats,Number of apartments per municipality,,,
-tot_kitchen,Number of apartments with kitchen per municipality,,,
-tot_cooking,Number of apartments with cooking facilities per municipality,,,
-tot_sglbath,Number of apartments with a single bathoroom per municipality,,,
-tot_combath,Number of apartments with common bathrooms per municipality,,,
-occ_flats,Number of occupied apartments per municipality,,,
-occ_kitchen,Number of occupied apartments with kitchen per municipality,,,
-occ_cooking,Number of occupied apartments with cooking facilities per municipality,,,
-occ_sglbath,Number of occupied apartments with a single bathoroom per municipality,,,
-occ_combath,Number of occupied apartments with common bathrooms per municipality,,,
-sec_flats,Number of second-home apartments in municipality,,,
-empty_flats,Number of empty apartments in municipality,,,
+﻿Variable Name,Variable Description
+mun_id,Municipality ID
+mun_name,Municipality Name
+mun_pop,Total population in municipality
+male_pop,Total male population
+fem_pop,Total female population
+swiss_pop,Total Swiss population
+swiss_male,Total male Swiss population in municipality
+swiss_fem,Total female Swiss population
+foreign_pop,Total foreign population in municipality
+foreign_male,Total foreign male population
+foreign_fem,Total foreign female population
+swiss_promille,Swiss population per 1000 in municipality
+foreign_promille,Foreign population per 1000 in municipality
+mun_name,Municipality Name
+lang_ge,Number of German native speakers in municipality
+lang_fr,Number of French native speakers in municipality
+lang_it,Number of Italian native speakers in municipality
+lang_rae,Number of Rhaetoromanic native speakers in municipality
+lang_other,Number of other native speakers in municipality
+rel_prot,Number of Protestants in municipality
+rel_romkath,Number of Roman-catholics in municipality
+rel_chrkath,Number of Christian-catholic in municipality
+rel_jew,Number of Jews in municipality
+rel_other,Number of other religions in municipality
+civil_sgl,Number of singles in municipality
+civil_mar,Number of people married in municipality
+civil_wid,Number of widow(er)s in municipality
+civil_div,Number of divorced people in municipality
+mun_name,Municipality Name
+age_0_male,Number of male newly-borns in municipality
+age_0_fem,Number of female newly-borns in municipality
+age_14_male,Number of male 1-4 year olds in municipality
+age_14_fem,Number of female 1-4 year olds in municipality
+age_59_male,Number of male 5-9 year olds in municipality
+age_59_fem,Number of female 5-9 year olds in municipality
+age_1014_male,Number of male 10-14 year olds in municipality
+age_1014_fem,Number of female 10-14 year olds in municipality
+age_1519_male,Number of male 15-19 year olds in municipality
+age_1519_fem,Number of female 15-19 year olds in municipality
+age_2024_male,Number of male 20-24 year olds in municipality
+age_2024_fem,Number of female 20-24 year olds in municipality
+age_2529_male,Number of male 25-29 year olds in municipality
+age_2529_fem,Number of female 25-29 year olds in municipality
+age_3034_male,Number of male 30-34 year olds in municipality
+age_3034_fem,Number of female 30-34 year olds in municipality
+age_3539_male,Number of male 35-39 year olds in municipality
+age_3539_fem,Number of female 35-39 year olds in municipality
+age_4044_male,Number of male 40-44 year olds in municipality
+age_4044_fem,Number of female 40-44 year olds in municipality
+age_4549_male,Number of male 45-49 year olds in municipality
+age_4549_fem,Number of female 45-49 year olds in municipality
+age_5054_male,Number of male 50-54 year olds in municipality
+age_5054_fem,Number of female 50-54 year olds in municipality
+age_5559_male,Number of male 55-59 year olds in municipality
+age_5559_fem,Number of female 55-59 year olds in municipality
+age_6064_male,Number of male 60-64 year olds in municipality
+age_6064_fem,Number of female 60-64 year olds in municipality
+age_65plus_male,Number of male 65 plus year olds in municipality
+age_65plus_fem,Number of female 65 plus year olds in municipality
+mun_name,Municipality Name
+mun_employed,Number of employed people in municipality
+male_employed,Number of male employed in municipality
+fem_employed,Number of female employed in municipality
+mun_1sector,Number of people employed in primary sector
+male_1sector,Number of male employed in primary sector
+fem_1sector,Number of female employed in primary sector
+mun_2sector,Number of people employed in secondary sector
+male_2sector,Number of male employed in secondary sector
+fem_2sector,Number of female employed in secondary sector
+mun_3sector,Number of people employed in tertiary sector
+male_3sector,Number of male employed in tertiary sector
+fem_3sector,Number of female employed in tertiary sector
+1sector_perc,Primary sector employees in percent of total employees per municipality
+2sector_perc,Secondary sector employees in percent of total employees per municipality
+3sector_perc,Tertiary sector employees in percent of total employees per municipality
+mun_name,Municipality Name
+tot_hh,Number of total households per municipality
+pers_hh,Number of persons living in households per municipality
+tot_privhh,Number of private households in municipality
+pers_privhh,Number of persons living in private households per municipality
+privhh_1,Number of persons living in 1-person households per municipality
+privhh_2,Number of persons living in 2-person households per municipality
+privhh_3,Number of persons living in 3-person households per municipality
+privhh_4,Number of persons living in 4-person households per municipality
+privhh_5,Number of persons living in 5-person households per municipality
+privhh_6,Number of persons living in 6-person households per municipality
+privhh_7,Number of persons living in 7-person households per municipality
+privhh_8plus,Number of persons living in 8 plus-person households per municipality
+mun_name,Municipality Name
+tot_flats,Number of apartments per municipality
+tot_kitchen,Number of apartments with kitchen per municipality
+tot_cooking,Number of apartments with cooking facilities per municipality
+tot_sglbath,Number of apartments with a single bathoroom per municipality
+tot_combath,Number of apartments with common bathrooms per municipality
+occ_flats,Number of occupied apartments per municipality
+occ_kitchen,Number of occupied apartments with kitchen per municipality
+occ_cooking,Number of occupied apartments with cooking facilities per municipality
+occ_sglbath,Number of occupied apartments with a single bathoroom per municipality
+occ_combath,Number of occupied apartments with common bathrooms per municipality
+sec_flats,Number of second-home apartments in municipality
+empty_flats,Number of empty apartments in municipality
