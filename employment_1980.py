@@ -100,6 +100,9 @@ for i in numbers:
         # For Fribourg (FR) and Valais (VS):
         if i == '345656' or i == '345684':
             new = new[2]
+        # For Zug (ZG):
+        elif i == '345688':
+            new = 'ZUG'
         # For all others:
         else:
             new = new[1]
