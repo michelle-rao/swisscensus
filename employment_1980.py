@@ -70,61 +70,83 @@ for i in numbers:
         # For Bern (BE):
         if i == '345654':
             df1 = read_pdf(name, pages="26", area=(118.64,55.25,718.41,505.21))
-            df4 = read_pdf(name, pages="57", area=(131.18,35.66,702.1,494.57))
+            df = read_pdf(name, pages="57", area=(131.18,35.66,702.1,494.57))
         # For Valais (VS):
         elif i == '345684':
             df1 = read_pdf(name, pages="26", area=(118.64,55.25,718.41,505.21))
-            df4 = read_pdf(name, pages="41", area=(131.18,35.66,702.1,494.57))
+            df = read_pdf(name, pages="41", area=(131.18,35.66,702.1,494.57))
         # For Fribourg (FR) and Graubünden (GR):
         elif i == '345656' or i == '345658':
             df1 = read_pdf(name, pages="26", area=(118.64,55.25,718.41,505.21))
-            df4 = read_pdf(name, pages="49", area=(131.18,35.66,702.1,494.57))
-        # For Aargau (AG):
-        elif i == '345644':
+            df = read_pdf(name, pages="49", area=(131.18,35.66,702.1,494.57))
+        # For Aargau (AG) and Thurgau (TG):
+        elif i == '345644' or i == '345678':
             df1 = read_pdf(name, pages="19", area=(118.64,55.25,718.41,505.21))
-            df4 = read_pdf(name, pages="38", area=(131.18,35.66,702.1,494.57))
+            df = read_pdf(name, pages="38", area=(131.18,35.66,702.1,494.57))
         # For Solothurn (SO) and Zurich (ZH):
         elif i == '345676' or i == '345690':
             df1 = read_pdf(name, pages="19", area=(118.64,55.25,718.41,505.21))
-            df4 = read_pdf(name, pages="34", area=(131.18,35.66,702.1,494.57))
+            df = read_pdf(name, pages="34", area=(131.18,35.66,702.1,494.57))
         # For Luzern (LU), Basel-Landschaft (BL) and St. Gallen (SG):
         elif i == '345662' or i == '345670' or i == '345650':
             df1 = read_pdf(name, pages="19", area=(118.64,55.25,718.41,505.21))
-            df4 = read_pdf(name, pages="30", area=(131.18,35.66,702.1,494.57))
+            df = read_pdf(name, pages="30", area=(131.18,35.66,702.1,494.57))
         # For all others:
         else:
             df1 = read_pdf(name, pages="19", area=(118.64,55.25,718.41,505.21))
-            df4 = read_pdf(name, pages="26",area=(131.18,35.66,702.1,494.57))
+            df = read_pdf(name, pages="26",area=(131.18,35.66,702.1,494.57))
         new = df1.columns.values[0]
         new = new.split()
         # For Fribourg (FR) and Valais (VS):
         if i == '345656' or i == '345684':
             new = new[2]
+        # For Zug (ZG):
+        elif i == '345688':
+            new = 'ZUG'
         # For all others:
         else:
             new = new[1]
         print(new)
         for name in glob.iglob(name):
             os.rename(name, (new + '_1980.pdf'))
-        canton = list(df4.columns.values)
+        canton = list(df.columns.values)
+        print(canton)
         # For Basel-Landschaft (BL):
         if i == '345650':
-            df4 = df4.drop('Unnamed: 7', axis=1)
-            df4.columns = varnames[58:71]
+            df = df.drop('Unnamed: 7', axis=1)
+            df.columns = varnames[58:71]
+        # For Thurgau (TG):
+        if i == '345678':
+            df = df.drop('Unnamed: 1', axis=1)
+            df.columns = varnames[58:71]
         # For Solothurn (SO):
         if i == '345676':
-            df4.columns = varnames[58:70]
+            df.columns = varnames[58:70]
         # For all others:
         else:
-            df4.columns = varnames[58:71]
+            df.columns = varnames[58:71]
         # Assign canton-level variables:
-        df4 = df4.assign(can_name = new)
-        for j in range(1,len(canton)):
-            df4 = df4.assign(varname = canton[j])
-            varnew = j
-            df4.rename(columns={"varname": varnew}, inplace=True)
+        df = df.assign(can_name = new, can_employed = canton[1])
+        for j in range(2,len(canton)):
+            df = df.assign(varname = canton[j])
+            varnew = ('can_' + varnames[(j+58)])
+            df.rename(columns={"varname": varnew}, inplace=True)
+        first = df[df.columns[0]]
+        first = list(first)
+        print(first)
+        district = []
+        def hasNumbers(inputString):
+            return bool(re.search(r'\d', inputString))
+        for mun in first:
+            numcheck = hasNumbers(mun.split()[0])
+            if numcheck == True:
+                district.append(1)
+            else:
+                district.append(0)
+        df = df.assign(district = district)
+        df = df[df.district == 1]
         newname = (new + '_employment_1980.csv')
-        df4.to_csv('./_employment/' + newname)
+        df.to_csv('./_employment/' + newname)
     except:
         print('Warning!')
         break
