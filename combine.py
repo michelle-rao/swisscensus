@@ -13,7 +13,6 @@ path ="C:/Users/Michelle/Desktop/Project/swisscensus/swisscensus/" # use your pa
 
 #Creating three separate files of datatype, "final_population", "final_language_civilstatus",
 #and "final_employment"
-
 frame = pd.DataFrame()
 list = []
 

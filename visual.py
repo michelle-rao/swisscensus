@@ -3,38 +3,59 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-filename = '_allvar_final.csv'
+filename = '_example.csv'
 df= pd.read_csv(filename)
+
+#Reshaping data
+print(df.head())
+idx = ['can_name', 'mun_name', 'year']
+multi_indexed_df = df.set_index(idx)
+print(multi_indexed_df.head(20))
+
+stacked_df = multi_indexed_df.stack(dropna = True)
+print(stacked_df.head(25))
+
+#Creating a smaller dataframe with variables of interest
+df1= df[['mun_name', 'can_name', 'year','fem_pop','mun_pop','fem_employed']].copy()
+
+#Converting data into relevant data types
+print(df1.dtypes)
+df1['fem_pop']=df1.fem_pop.astype(float)
+df1['fem_employed']=df1.fem_employed.astype(float)
+print(df1.dtypes)
+
+#Creating variable - female labour force participation
+df1['FLFP'] = df1['fem_pop']/ df1['mun_pop']
+print(df1.head())
+
+by_canton = df1.groupby('can_name')
+print(by_canton.mean())
 sns.set()
 
-print(df.head())
-#See if we can add these as questions in the command line
+xvar = "can_name"
+yvar = "FLFP"
 
-df1= df[['mun_name', 'can_name','fem_pop','mun_pop','fem_employed']].copy()
-df1.dropna()
-print(df1.dtypes)
+#barplot
+sns.catplot(x=xvar, y=yvar,  palette = 'coolwarm', data=df1,kind='bar')
+plt.xticks(rotation=50, fontsize=6)
+plt.title('Female Labour Force Participation by Canton')
+plt.ylabel('Female Labour Force Participation (%)', fontsize=10)
+plt.xlabel('Canton Name', fontsize=10)
+plt.show()
 
-df['fem_pop'] = df['fem_pop'].convert_objects(convert_numeric=True)
-df1['fem_pop']=df1.fem_pop.astype(float)
-# df1['fem_employed']=df1.fem_employed.astype(float)
-
-print(df1.dtypes)
-
-#df1['FLFP'] = df1['fem_pop']/ df1['mun_pop']
-
-
-xvar = "mun_name"
-yvar = "fem_employed"
-
-#page 26,27 (female labour force participation)
-#graphty= ['line', 'scatter', 'scatterfit', 'bar']
-#Add option for choosing which version you want
-#Checking the main variables in the plot
-
-#Heatmap with 10 cantons; and two years with female labour force participation
-#Heatmap with cantons & percentage foreign population
-#Regression line graph with years and FLP
+#heatmap - can add columns='year', once data is available
+flfp_cant= df1.pivot_table(values='FLFP', index='can_name', columns='year')
+sns.heatmap(flfp_cant, cmap='magma', linecolor='white', linewidths=1)
+plt.title('Female Labour Force Participation by Canton')
+plt.ylabel('Female Labour Force Participation (%)', fontsize=10)
+plt.xlabel('Canton Name', fontsize=10)
+plt.yticks(fontsize=6)
+plt.show()
 #
+# #regplot
+# sns.catplot(x="can_name", y=yvar, data=df1, col="year", palette = "coolwarm")
+# plt.show()
+
 # #line graph
 # sns.relplot(x= xvar, y= yvar, data= df1)
 # plt.show()
@@ -48,14 +69,7 @@ yvar = "fem_employed"
 # sns.lmplot(x=xvar, y=yvar, data=df1)
 # plt.show()
 #
-# #barplot
-# sns.barplot(x=xvar, y=yvar, data=df1)
-# plt.show()
-#
 # #violinplot
 # #sns.violinplot(x="day", y="total_bill", data=tips,hue='sex',palette='Set1')
 # #plt.show()
 #
-# #matrixplots
-# #flights.pivot_table(values='passengers',index='month',columns='year')
-# #plt.show()
